@@ -61,8 +61,8 @@ Known remaining confusions: isolated "L" / "les" -> `left`, "top" -> `stop` (nea
 ```
 firmware/mic_test/   STM32CubeIDE project (mic_test.ioc, Core/, X-CUBE-AI/, CMSIS_DSP/, Middlewares/)
 notebooks/           01 data + MFCC, 02 speaker fine-tuning, 03 open-set training (unknown/silence, DS-CNN)
-tools/               kayit_al.py (labelled recording), otomatik_kayit.py (bulk negatives),
-                     mfcc_dogrula.py (board vs. PC MFCC check)
+tools/               record_labeled.py (labelled recording), record_auto.py (bulk negatives),
+                     verify_mfcc.py (board vs. PC MFCC check)
 models/              kws_int8.tflite (v1 baseline), kws_int8_v2.tflite (speaker-adapted),
                      kws_int8_v3.tflite (current, 10-class open-set DS-CNN)
 ```
@@ -80,7 +80,7 @@ Key source files: `Core/Src/mfcc.c` (MFCC, CMSIS-DSP FFT), `Core/Src/kws_model.c
 4. Reset the board, stay silent for 1 s (noise floor calibration), then speak a command.
 
 `RECORD_MODE` in `main.c`: `0` = live recognition, `1` = data collection (press the blue button,
-speak when the orange LED turns on; the clip is sent over UART to `tools/kayit_al.py`).
+speak when the orange LED turns on; the clip is sent over UART to `tools/record_labeled.py`).
 
 To regenerate CubeMX code, open `mic_test.ioc` in STM32CubeMX with X-CUBE-AI 10.2.1.
 User code lives in `USER CODE` blocks and separate files and is preserved.
