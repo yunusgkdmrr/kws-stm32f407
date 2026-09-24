@@ -1,0 +1,15 @@
+# Derleme çıktıları
+Debug/
+Release/
+*.o
+*.d
+*.elf
+*.map
+*.list
+# Ses kayıtları ve veri setleri (kişisel veri / büyük dosyalar)
+*.wav
+*.zip
+data/
+# Sistem dosyaları
+.DS_Store
+__pycache__/
